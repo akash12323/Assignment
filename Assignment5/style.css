@@ -1,0 +1,236 @@
+
+body{
+    background-color: #f8f9fa;
+}
+
+a{
+    margin-right: 30px;
+}
+.container-fluid{
+    margin-right: 50px;
+}
+nav a i{
+    font-size: 1.6rem;
+}
+nav div div{
+    margin-left: 100px;
+}
+
+
+
+
+
+#home{
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+#home img{
+    width: 100%;
+    box-shadow: 1px 2px 10px #adb5bd;
+    border-radius: 10px;
+}
+#home img{
+    margin-top: 20px;
+}
+#home p{
+    font-size: 1.4rem;
+    margin-top: 50px;
+    letter-spacing: 1.2px;
+    color: #6c757d;
+    font-family: 'Shippori Mincho B1', serif;
+}
+#home h1{
+    font-size: 4rem;
+    font-family: 'Shippori Mincho B1', serif;
+}
+#home h3{
+    font-family: 'Shippori Mincho B1', serif;
+}
+#home h4{
+    padding-top: 10px;
+    font-size: 1.4rem;
+    font-family: 'Shippori Mincho B1', serif;
+    color: #8d99ae;
+}
+#home h4 i{
+    padding-right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#education div div h1{
+    font-family: 'Shippori Mincho B1', serif;
+    margin-bottom: 2%;
+}
+#education div div p{
+    letter-spacing: 1.4px;
+}
+#education .row{
+    margin-top: 12%;
+}
+#education span{
+    text-decoration: underline;
+    color: black;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#projects img{
+    width: 100%;
+    height: 100%;
+}
+#projects div{
+    margin: 5px auto;
+}
+#projects div div{
+    text-align: center;
+    transition: all 0.5s ;
+}
+#projects div div:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+#projects div div:hover img{
+    filter: grayscale(0.5);
+    opacity: 0.3;
+}
+#myworks,#about div{
+    text-align: center;
+}
+#myworks,#about div p{
+    letter-spacing: 1.4px;
+}
+#myworks div h3{
+    font-family: 'Shippori Mincho B1', serif;
+    color: #6c757d;
+}
+
+
+
+
+
+
+
+
+
+
+
+#skills .row{
+    margin-top: 10%;
+}
+#skills .row:nth-of-type(2){
+    margin-bottom: 5%;
+}
+
+#skills div div h1{
+    margin: 20px 0px 30px 0px;
+}
+
+.imag img{
+    width: 80%;
+}
+
+@media screen and (max-width:767px){
+    #skills div .imag{
+        width: 60%;
+        height: 50%;
+    }   
+    .imag img{
+        width: 100%;
+        height: 70%;
+    }
+}
+
+#skills div div h5{
+    font-family: 'Shippori Mincho B1', serif;
+}
+#kotlin, #retrofit, #firebase, #room, #exo_player, #html, #css3, #bootstrap, #js, #jquery{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 90%;
+    height: 7px;
+    transition: all 3s;
+}
+#kotlin, #firebase{
+    background: linear-gradient(to right,  #adb5bd 0%,#adb5bd 85%,#e9ecef 85%,#e9ecef 100%);
+}
+#retrofit, #room{
+    background: linear-gradient(to right,  #adb5bd 0%,#adb5bd 90%,#e9ecef 90%,#e9ecef 100%);
+}
+#exo_player{
+    background: linear-gradient(to right,  #adb5bd 0%,#adb5bd 70%,#e9ecef 70%,#e9ecef 100%);
+}
+#html{
+    background: linear-gradient(to right,  #adb5bd 0%,#adb5bd 95%,#e9ecef 95%,#e9ecef 100%);
+}
+#css3{
+    background: linear-gradient(to right,  #adb5bd 0%,#adb5bd 90%,#e9ecef 90%,#e9ecef 100%);
+}
+#bootstrap{
+    background: linear-gradient(to right,  #adb5bd 0%,#adb5bd 85%,#e9ecef 85%,#e9ecef 100%);
+}
+#js, #jquery{
+    background: linear-gradient(to right,  #adb5bd 0%,#adb5bd 75%,#e9ecef 75%,#e9ecef 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    margin-top: 50px;
+    padding: 5%;
+    background-color: #e9ecef;
+}
+footer div div {
+    text-align: center;
+    line-height: 18px;
+}
+footer h4,i,a{
+    text-align: center;
+}
+footer h4{
+    margin-top: 5px;
+    font-family: 'Shippori Mincho B1', serif;
+}
+footer a{
+    color: black;
+    margin-left: 15px;
+}
+footer div div div:hover{
+    color: #007bff;
+}

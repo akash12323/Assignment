@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* background-color: #e8eddf; */
+}
+
+
+
+nav{
+    width: 100%;
+    min-height: 50px;
+    background-color: #343a40;
+    font-size: 1.4rem;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+li{
+    color: whitesmoke;
+    list-style: none;
+}
+
+a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+@media screen and (max-width:1028px){
+    nav{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width:715px){
+    ul{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1rem;
+    }
+}
+
+
+button{
+    border: 3px solid rgb(168, 166, 7);
+    padding: 5px 20px;
+    border-radius: 4px;
+    background: transparent;
+}
+
+
+
+div > div{
+    max-height: 200px;
+}
+
+
+
+#heading{
+    font-size: 4rem;
+    font-weight: normal;
+    color: rgb(249, 250, 208);;
+    margin-bottom: 0px;
+}
+#desc{
+    font-size: 2.2rem;
+    font-weight: normal;
+    color: rgb(249, 250, 208);
+}
+
+
+article{
+    background-image: url("https://www.jcbank.com/images/default-source/personal-banking-images/supporting-images/personalsecurity.png?sfvrsn=335b63e8_4");
+    background-size: cover;
+    height: 760px;
+}
+#home{
+    display: inline-block;
+    margin: 5% 20%;
+    width: 48%;
+}
+h1 > span{
+    font-size: 4rem;
+    font-weight: normal;
+    color: rgb(168, 166, 7);
+}
+div > p{
+    color: rgb(249, 250, 208);
+    line-height: 2;
+    font-family: cursive;
+}
+div > button{
+    padding: 10px 25px;
+    font-size: 20px;
+    margin-right: 15px;
+}
+div > button:nth-of-type(1){
+    color: whitesmoke;
+    border: 2px solid rgb(212, 211, 211);
+}
+div > button:nth-of-type(2){
+    background-color: thistle;
+    border: 2px solid thistle;
+}
+
+
+
+
+#services{
+    margin: 10% auto;
+    width: 70vw;
+}
+
+#services > div{
+    display: inline-block;
+    margin: 0px auto;
+    width: 25%;
+    padding: 2px 30px;
+    text-align: center;
+}
+
+#services > div > h2{
+    font-size: 2rem;
+    margin-bottom: 0px;
+}
+#security::before{
+    content: '\1F4B0';
+}
+#presentation::before{
+    content: '\1F381';
+}
+#stats::before{
+    content: '\1F4B5';
+}
+
+#services > div > p{
+    font-size: 1rem;
+    color: rgb(148, 145, 145);
+    margin-top: 15px;
+}
+
+
+
+
+
+div > img{
+    float: left;
+    padding: 10px;
+}
+#container3{
+    width: 70vw;
+    margin: 10% auto;
+}
+#container3 > h2{
+    letter-spacing: 1px;
+    padding: 10px;
+}
+#container3 > p{
+    color: rgb(148, 145, 145);
+    letter-spacing: 0.5px;
+    padding: 10px;
+}
+
+
+
+
+#container4{
+    width: 70vw;
+    margin: 10% auto;
+}
+#container4 > div{
+    width: 20%;
+    display: inline-block;
+    margin: 25px;
+}
+#container4 > div > h2{
+    font-size: 2rem;
+    margin-bottom: 0px;
+}
+#container4 > div > p{
+    font-size: 1rem;
+    color: rgb(148, 145, 145);
+    margin-top: 10px;
+}
