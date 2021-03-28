@@ -15,6 +15,11 @@ nav a i{
 nav div div{
     margin-left: 100px;
 }
+@media screen and (max-width:990px){
+    nav div div{
+        margin-left: 10px;
+    }
+}
 
 
 
