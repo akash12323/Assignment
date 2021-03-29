@@ -54,6 +54,7 @@ btn.addEventListener('click',(event)=>{
         x.classList.remove('first');
         x.innerHTML = " &nbsp &nbsp" + inputText;
         x.prepend(deleteLi,editLi);
+        btn.innerText = "ADD ME";
         inp.value = ""; 
         isTrue = true;
     }
@@ -62,6 +63,7 @@ btn.addEventListener('click',(event)=>{
         lis.classList.add('second');
         inp.value = lis.innerText.slice(4);
         lis.classList.add('second');
+        btn.innerText = "UPDATE";
         isTrue = false;
     });
 
