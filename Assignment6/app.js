@@ -5,6 +5,7 @@ const btn = document.querySelector('button');
 const ul = document.querySelector('ul');
 
 let isTrue = true;
+let x;
 
 btn.addEventListener('click',(event)=>{
 
@@ -31,7 +32,7 @@ btn.addEventListener('click',(event)=>{
     }
     else if(isTrue == true) {
         lis.innerHTML = " &nbsp &nbsp"+ inputText;
-        ul.append(lis);
+        ul.appendChild(lis);
         lis.prepend(deleteLi,editLi);
         inp.value = "";
     }
@@ -48,24 +49,25 @@ btn.addEventListener('click',(event)=>{
 
 
     //___________EDIT LIS_________________________________________
-
+    
     if(isTrue == false){
-        const x = document.querySelector('.second');
-        x.classList.remove('first');
-        x.innerHTML = " &nbsp &nbsp" + inputText;
-        x.prepend(deleteLi,editLi);
+        lis.innerHTML = " &nbsp &nbsp"+inp.value;
+        let color = x.getAttribute('backgroundColor');
+        lis.style.backgroundColor = color;
+        lis.prepend(deleteLi,editLi);
+        ul.replaceChild(lis,x);
+        inp.value = "";
         btn.innerText = "ADD ME";
-        inp.value = ""; 
-        isTrue = true;
+        isTrue = false;
     }
 
     editLi.addEventListener('click',(e)=>{
-        lis.classList.add('second');
+        x = lis;
         inp.value = lis.innerText.slice(4);
-        lis.classList.add('second');
         btn.innerText = "UPDATE";
         isTrue = false;
     });
+    
 
     //_______RANDOM COLOR_________________________________________
     let randomInt = Math.floor(Math.random()*3) + 1;
@@ -81,3 +83,4 @@ btn.addEventListener('click',(event)=>{
     }
     
 });
+
