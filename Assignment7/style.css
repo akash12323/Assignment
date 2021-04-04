@@ -1,0 +1,159 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* height: 100vh; */
+    background: linear-gradient(#343a40, #9198e5);
+}
+
+
+nav .navbar-brand{
+    font-size: 2rem;
+    color: whitesmoke;
+}
+#icon{
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-size: cover;
+}
+
+.container{
+    margin-top: 4%;
+    margin-bottom: 2%;
+    visibility: hidden;
+}
+.container .row:nth-of-type(1){
+    background: linear-gradient(#111d41 0%,#1c2541 60%, #1c2541 60%,#3a506b 100%);
+}
+.container .row div:nth-of-type(1){
+    padding: 3% 8%;
+    color: #ced4da;
+}
+
+.container .row div:nth-of-type(2){
+    padding: 3% 8%;
+    color: #ced4da;
+    text-align: center;
+}
+
+#temp{
+    color: #ced4da;
+    font-size: 9.2rem;
+}
+#minTemp{
+    border-right: 2px solid #ced4da;
+    display: inline-block;
+    padding-right: 8%;
+    color: #ced4da;
+    font-size: 3.3rem;
+}
+#maxTemp{
+    padding-left: 5%;
+    color: #ced4da;
+    display: inline-block;
+    font-size: 3.3rem;
+}
+
+@media screen and (max-width:1198px) {
+    #temp{
+        font-size: 7.7rem;
+    }
+    #minTemp{
+        font-size: 3rem;
+    }
+    #maxTemp{
+        font-size: 3rem;
+    }
+    .container .row div:nth-of-type(2){
+        padding: 3% 8%;
+        color: #ced4da;
+        text-align: center;
+    }
+}
+@media screen and (max-width:988px) {
+    #temp{
+        font-size: 7rem;
+    }
+    #minTemp{
+        font-size: 2.5rem;
+    }
+    #maxTemp{
+        font-size: 2.5rem;
+    }
+    .container .row div:nth-of-type(2){
+        color: #ced4da;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #temp{
+        font-size: 8rem;
+    }
+    #minTemp{
+        font-size: 2.5rem;
+        padding-right: 2%;
+    }
+    #maxTemp{
+        font-size: 2.5rem;
+        padding-left: 2%;
+    }
+    .container .row div:nth-of-type(2){
+        color: #ced4da;
+        text-align: left;
+    }
+}
+
+
+ul{
+    list-style: none;
+}
+li{
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+.container .row:nth-of-type(2){
+    margin: 50x 0px;
+    background-color: white;
+}
+.container .row:nth-of-type(2) ul{
+    white-space: nowrap;
+    overflow: hidden;
+}
+.container .row:nth-of-type(2) ul:hover{
+    overflow: scroll;
+}
+.forecast{
+    display: inline-block;
+    margin: 20px;
+    background-color: white;
+}
+.forecast h1,h2{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+.forecast p{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.forecast img{
+    margin-left: 0;
+    padding: 0;
+    text-align: center;
+}
