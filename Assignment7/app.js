@@ -13,6 +13,7 @@ const minTemp = document.querySelector('#minTemp');
 const maxTemp = document.querySelector('#maxTemp');
 const date = document.querySelector('#date');
 
+
 const api_key = "911b61c604043b0be82300d61989a363";
 let lat,lon;
 
@@ -25,7 +26,7 @@ const getWeatherByCity = async (cityName)=>{
     var ts = new Date();
     date.innerText = ts.toDateString();
 
-    console.log(res.data);
+    // console.log(res.data);
 
     lon = res.data.coord.lon;
     lat = res.data.coord.lat;
@@ -40,6 +41,8 @@ const getWeatherByCity = async (cityName)=>{
 
 
     divs.style.visibility = 'visible';
+    const body = document.querySelector('body');
+    body.style.background = "linear-gradient(#343a40, #9198e5)";
 
     getHourlyForecast(lon,lat);
 
@@ -54,7 +57,12 @@ const getHourlyForecast = async (lon,lat)=>{
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,daily,current,alerts&appid=${api_key}&units=metric`;
     const res = await axios.get(url);
 
-    console.log(res.data.hourly);
+    // console.log(res.data.hourly);
+
+    const lis = document.querySelectorAll('.first');
+    for(let x of lis){
+        x.remove();
+    }
 
     let i=0;
     for(let forcast of res.data.hourly){
@@ -62,7 +70,7 @@ const getHourlyForecast = async (lon,lat)=>{
             break
         }
         const li = document.createElement('li');
-        
+        li.classList.add('first');
         i = i+1;
 
         let timeobj = new Date(forcast.dt * 1000);
@@ -77,13 +85,12 @@ const getHourlyForecast = async (lon,lat)=>{
 
         li.innerHTML = `<div class="forecast">
             <h1>${hours}</h1>
-            <img src="http://openweathermap.org/img/wn/"+${forcast.weather[0].icon}+"@2x.png" alt="">
-            <h2>${forcast.temp}°</h2>
+            <img src="http://openweathermap.org/img/wn/${forcast.weather[0].icon}@2x.png" alt="">
+            <h2>${forcast.temp}°C</h2>
             <p>${forcast.weather[0].main}</p>
         </div>`;
 
         ul.append(li);
-        console.log(forcast.weather[0].icon);
     }
 }
 
