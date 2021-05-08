@@ -10,13 +10,28 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/blog">Home</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link active" href="#"></a>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link active" href="/blog/new" >New</a>
           </li>
         </ul>
+
+        <div class="navbar-nav ml-auto">
+
+       
+          <%if(!currentUser){%>
+            <a href="/login" class="nav-link active">Login</a>
+          <%}else{%>
+            <a href="/user/<%= currentUser._id %>/posts" class="nav-link active">My Posts 
+          
+              <!-- <sup><span class="badge bg-danger">2</span></sup>  -->
+             
+            </a>
+            <a href="/logout" class="nav-link active">Logout</a>
+          <% } %> 
+      
+          
+      
+      </div>
       </div>
     </div>
   </nav>

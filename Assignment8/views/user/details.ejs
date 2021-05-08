@@ -17,33 +17,19 @@
         <div class="col-lg-12 mb-3">
             <p><%= blog.desc %></p>
         </div>
+        <div class="col-lg-4">
+            <a href="/blog/<%= blog._id %>/edit" class="btn btn-lg btn-primary">&nbsp; Edit &nbsp;</a>
+            <br><br>
+            <form action="/blog/<%= blog._id %>?_method=DELETE" method="post">
+                <button class="btn btn-lg btn-outline-danger">DELETE</button>
+            </form>
+        </div>
     </div>
 </div>
 
 
 <div class="container mb-4 mt-5">
     <div class="row m-3">
-        
-        <div class="col-lg-7">
-            <h1>Leave a Review</h1>
-            <form class="validated-form" action="/blog/<%=blog._id%>/review" method="POST" style="max-width:80%;" novalidate>
-                <div class="mb-3">
-                    <label for="rating" class="form-label">Rating</label>
-                    <input type="range" class="form-range" min="0" max="5" name="rating" id="rating">
-                </div>
-            
-                <div class="mb-3">
-                    <label for="desc" class="form-label">Description</label>
-                    <textarea class="form-control" id="desc" cols="35" rows="3" name="comment" required></textarea>
-                    <div class="valid-feedback">
-                      Looks good!
-                    </div>
-                  </div>
-               
-                <button type="submit" class="btn btn-success">Submit</button>
-              </form>     
-        </div>
-
         <div class="col-lg-5">
             <div class="mb-3 mt-3">
                 <%for(let review of blog.reviews){%>
@@ -56,7 +42,6 @@
                           <p class="card-text"><%=review.comment%></p>
                         </div>
                       </div>
-    
                 <%}%>
               </div>
         </div>

@@ -1,26 +1,24 @@
 <%- include('../partials/header') %> 
 <%- include('../partials/navbar') %> 
 
-<div class="container mb-4">
+<div class="container mb-4" style="border: 0;">
     <%- include('../partials/flash') %> 
 </div>
 
-<%for(let blog of blogs){%>
-    <div class="container mb-4" style="margin-top: 1rem;">
-        <div class="row m-3">
-            <div class="col-lg-5">
-                <div class="card">
-                    <img src="<%= blog.img %>" class="card-img-top" alt="..." style="height: 350px;">
+<div style="width: 85vw; margin: 1rem auto;">
+    <div class="row m-3">
+        <%for(let blog of blogs){%>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="card p-2">
+                    <img src="<%= blog.img %>" class="card-img-top" alt="..." style="height: 250px;">
+                    <h5 class="lead display-6"><%= blog.title.substring(0,15) %> </h5>
+                    <p><%= blog.desc.substring(0,180) %> ...</p>
+                    <a href="/blog/<%= blog._id %>" class="btn btn-outline-primary">Continue Reading</a>
                 </div>
             </div>
-            <div class="col-lg-6 mb-5 ms-3 home">
-                <h3 class="lead display-5"><%= blog.title %> </h3>
-                <p><%= blog.desc.substring(0,180) %> ...</p>
-                <a href="/blog/<%= blog._id %>" class="btn btn-outline-primary">Continue Reading</a>
-            </div>
-        </div>
+        <% } %> 
     </div>
-<% } %> 
+</div>
 
 
 

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Blog = require('../model/blog');
 const Review = require('../model/review');
+const {isLoggedIn} = require('../middleware');
+const User = require('../model/user');
 
 
 router.get('/',(req,res)=>{
@@ -26,9 +28,16 @@ router.get('/blog/new',(req,res)=>{
     res.render('blog/new');
 });
 
-router.post('/blog',async(req,res)=>{
+router.post('/blog',isLoggedIn,async(req,res)=>{
     try{
-        await Blog.create(req.body.blog);
+        //to save the post in blog model
+        const blog = await Blog.create(req.body.blog);
+
+        //to save the post in user's my posts array
+        const user = req.user;
+        user.myPosts.push(blog);
+        await user.save();
+
         req.flash('success','Blog created successfully!!!');
         res.redirect('/blog');
     }
@@ -66,11 +75,11 @@ router.get('/blog/:id/edit',async(req,res)=>{
     }
 })
 
-router.patch('/blog/:id',async(req,res)=>{
+router.patch('/blog/:id',isLoggedIn,async(req,res)=>{
     try{
         const blog = await Blog.findByIdAndUpdate(req.params.id , req.body.blog);
         req.flash('success','Blog Updated');
-        res.redirect(`/blog/${req.params.id}`);
+        res.redirect(`/user/${req.user._id}/posts/${req.params.id}`);
     }
     catch(e){
         req.flash('error','Failed to update the blog');
@@ -81,11 +90,15 @@ router.patch('/blog/:id',async(req,res)=>{
 
 
 // TO DELETE DOCUMENT
-router.delete('/blog/:id',async(req,res)=>{
+router.delete('/blog/:id',isLoggedIn,async(req,res)=>{
     try{    
+        //to delete from Blog model
         await Blog.findByIdAndDelete(req.params.id);
+        //to delete from myPosts array present in User model
+        await User.findByIdAndUpdate(req.user._id,{$pull:{myPosts:req.params.id}}); 
+        
         req.flash('success','Blog deleted successfully!!!');
-        res.redirect('/blog');
+        res.redirect(`/user/${req.user._id}/posts`);
     }
     catch(e){
         req.flash('error','Failed to delete Blog!!!');
@@ -97,8 +110,9 @@ router.delete('/blog/:id',async(req,res)=>{
 
 
 
+
 //Add Review
-router.post('/blog/:id/review',async(req,res)=>{
+router.post('/blog/:id/review',isLoggedIn,async(req,res)=>{
     const review = new Review(req.body);
     const blog = await Blog.findById(req.params.id);
 
