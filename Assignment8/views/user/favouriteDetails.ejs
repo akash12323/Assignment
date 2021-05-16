@@ -17,11 +17,9 @@
         <div class="col-lg-12 mb-3">
             <p><%= blog.desc %></p>
         </div>
-        <% if(currentUser){ %> 
-        <form action="/user/<%= currentUser._id %>/favourites/<%= blog._id %>" method="POST">
-            <button class="btn btn-light btn-lg btn-outline-success">Add To Favourites</button>
+        <form action="/user/<%= currentUser._id %>/favourites/<%= blog._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-light btn-lg btn-outline-danger">Remove From Favourites</button>
         </form>
-        <% } %>
     </div>
 </div>
 

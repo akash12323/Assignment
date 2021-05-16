@@ -6,7 +6,7 @@
     <%- include('../partials/flash') %> 
 </div>
 
-<%for(let blog of myPosts){%>
+<%for(let blog of favourites){%>
     <div class="container mb-4" style="margin-top: 1rem;">
         <div class="row m-3">
             <div class="col-lg-5">
@@ -17,7 +17,7 @@
             <div class="col-lg-6 mb-5 ms-3 home">
                 <h3 class="lead display-5"><%= blog.title %> </h3>
                 <p><%= blog.desc.substring(0,180) %> ...</p>
-                <a href="/user/<%= currentUser._id %>/posts/<%= blog._id %>" class="btn btn-outline-primary">Continue Reading</a>
+                <a href="/user/<%= currentUser._id %>/favourites/<%= blog._id %>" class="btn btn-outline-primary">Continue Reading</a>
             </div>
         </div>
     </div>

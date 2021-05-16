@@ -26,7 +26,7 @@ const getWeatherByCity = async (cityName)=>{
     var ts = new Date();
     date.innerText = ts.toDateString();
 
-    // console.log(res.data);
+    console.log(res.data);
 
     lon = res.data.coord.lon;
     lat = res.data.coord.lat;
