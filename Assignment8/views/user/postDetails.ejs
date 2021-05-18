@@ -18,9 +18,9 @@
             <p><%= blog.desc %></p>
         </div>
         <div class="col-lg-4">
-            <a href="/blog/<%= blog._id %>/edit" class="btn btn-lg btn-primary">&nbsp; Edit &nbsp;</a>
+            <a href="/user/<%= currentUser._id %>/blog/<%= blog._id %>/edit" class="btn btn-lg btn-primary">&nbsp; Edit &nbsp;</a>
             <br><br>
-            <form action="/blog/<%= blog._id %>?_method=DELETE" method="post">
+            <form action="/user/<%= currentUser._id %>/blog/<%= blog._id %>?_method=DELETE" method="post">
                 <button class="btn btn-lg btn-outline-danger">DELETE</button>
             </form>
         </div>

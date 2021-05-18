@@ -7,7 +7,7 @@
 
 <div class="container" style="margin-top: 3rem; width: 80vw;">
     
-    <form class="validated-form" action="/blog/<%=blog._id%>?_method=PATCH" method="POST" style="max-width:70%;margin:10px auto" novalidate>
+    <form class="validated-form" action="/user/<%= currentUser._id %>/blog/<%=blog._id%>?_method=PATCH" method="POST" style="max-width:70%;margin:10px auto" novalidate>
         <div class="mb-3">
             <label for="price" class="form-label">Category</label>
             <input type="text" class="form-control" id="price" placeholder="Enter the category" name="blog[category]" value="<%= blog.category %> " required>

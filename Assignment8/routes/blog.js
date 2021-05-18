@@ -63,51 +63,6 @@ router.get('/blog/:id',async(req,res)=>{
 
 
 
-// TO EDIT DETAILS
-router.get('/blog/:id/edit',async(req,res)=>{
-    try{
-        const blog = await Blog.findById(req.params.id);
-        res.render('blog/edit',{blog});
-    }
-    catch(e){
-        req.flash('error','Blog does not exist!!!');
-        res.redirect('/error');
-    }
-})
-
-router.patch('/blog/:id',isLoggedIn,async(req,res)=>{
-    try{
-        const blog = await Blog.findByIdAndUpdate(req.params.id , req.body.blog);
-        req.flash('success','Blog Updated');
-        res.redirect(`/user/${req.user._id}/posts/${req.params.id}`);
-    }
-    catch(e){
-        req.flash('error','Failed to update the blog');
-        res.redirect(`/blog/${req.params.id}`);
-    }
-})
-
-
-
-// TO DELETE DOCUMENT
-router.delete('/blog/:id',isLoggedIn,async(req,res)=>{
-    try{    
-        //to delete from Blog model
-        await Blog.findByIdAndDelete(req.params.id);
-        //to delete from myPosts array present in User model
-        await User.findByIdAndUpdate(req.user._id,{$pull:{myPosts:req.params.id}}); 
-        
-        req.flash('success','Blog deleted successfully!!!');
-        res.redirect(`/user/${req.user._id}/posts`);
-    }
-    catch(e){
-        req.flash('error','Failed to delete Blog!!!');
-        res.redirect(`/blog/${req.params.id}`);
-    }
-});
-
-
-
 
 
 
