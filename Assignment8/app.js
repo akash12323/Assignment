@@ -1,3 +1,9 @@
+
+if(process.env.NODE_ENV != 'production'){
+    require('dotenv').config()
+}
+
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -74,6 +80,6 @@ mongoose.connect('mongodb://localhost:27017/blogApp',
 
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log('Server started on Port 3000');
 })
