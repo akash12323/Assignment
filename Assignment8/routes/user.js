@@ -46,14 +46,27 @@ router.post('/user/:userId/favourites/:id',isLoggedIn,async(req,res)=>{
         const blog = await Blog.findById(id);
 
         const user = req.user;
-        user.favourites.push(blog);
-        await user.save();
+        let alreadyExists = false;
+        for(let fav of user.favourites){
+            if(fav._id == id){
+                req.flash('success','Blog already exists in your favourites');
+                alreadyExists = true;
+                break;
+            }
+            else{
+                
+            }
+        }
+        if(!alreadyExists){
+            user.favourites.push(blog);
+            await user.save();
+            req.flash('success','Blog added to favourites successfully');
+        }
 
-        req.flash('success','Blog added to favourites successfully');
         res.redirect(`/user/${userId}/favourites`);
     }
     catch(e){
-        req.flash('error','Failed to load blog');
+        req.flash('error','Failed to add blog to your favourites');
         res.redirect(`/blog`);
     }
 })

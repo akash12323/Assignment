@@ -21,9 +21,18 @@
           <%if(!currentUser){%>
             <a href="/login" class="nav-link active">Login</a>
           <%}else{%>
-            <a href="/user/<%= currentUser._id %>/posts" class="nav-link active">My Posts</a>
+            <li class="nav-item dropdown" style="margin-right: 25px;">
+              <a class="nav-link active dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= currentUser.username %> </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="/user/<%= currentUser._id %>/posts">My Posts</a></li>
+                <li><a class="dropdown-item" href="/user/<%= currentUser._id %>/favourites">Favourites</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </li>
+            <!-- <a href="/user/<%= currentUser._id %>/posts" class="nav-link active">My Posts</a>
             <a href="/user/<%= currentUser._id %>/favourites" class="nav-link active">Favourites</a>
-            <a href="/logout" class="nav-link active">Logout</a>
+            <a href="/logout" class="nav-link active">Logout</a> -->
           <% } %> 
       
           

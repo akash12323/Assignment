@@ -3,6 +3,7 @@ const router = express.Router();
 
 const passport = require('passport');
 const User = require('../model/user');
+const emailCheck = require('email-check');
 
 
 router.get('/register',(req,res)=>{
@@ -10,10 +11,18 @@ router.get('/register',(req,res)=>{
 });
 
 router.post('/register',async(req,res)=>{
-    const user = new User({email:req.body.email, username:req.body.username});
-    await User.register(user,req.body.password);
-    req.flash('success','Registered successfully!!!');
-    res.redirect('/blog');
+    emailCheck(`${req.body.email}`,{timeout:90000})
+        .then(async()=>{
+            const user = new User({email:req.body.email, username:req.body.username});
+            await User.register(user,req.body.password);
+            req.flash('success','Registered successfully!!!');
+            res.redirect('/blog');
+        })
+        .catch(function (err) {
+            req.flash('error','Please enter a valid email id');
+            console.log(err.message);
+            res.redirect('/register');
+        });
 })
 
 
