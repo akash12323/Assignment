@@ -62,7 +62,7 @@ app.use(userRoutes);
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/blogApp', 
+mongoose.connect(`${process.env.DB_URL}`, 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,

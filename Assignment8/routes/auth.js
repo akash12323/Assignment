@@ -52,8 +52,12 @@ router.post('/register',async(req,res)=>{
             res.redirect('/blog');
         })
         .catch(function (err) {
-            req.flash('error','Please enter a valid email id');
-            console.log(err.message);
+            if(err == 'refuse'){
+                req.flash('error','Please enter a valid email id');
+            }
+            else{
+                console.log(err.message);
+            }
             res.redirect('/register');
         });
 })
